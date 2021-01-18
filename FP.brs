@@ -1,26 +1,7 @@
+' Functional Programming with BrightScript
+' By Bright Scripters
 
-Function fp_Initialize(msgPort As Object, userVariables As Object, bsp as Object)
-    fp = newfp(msgPort, userVariables, bsp)
-    return fp
-End Function
-
-Function newfp(msgPort As Object, userVariables As Object, bsp as Object)
-	s = {}
-	s.version = 0.1
-	s.msgPort = msgPort
-	s.userVariables = userVariables
-	s.bsp = bsp
-	s.ProcessEvent = fp_ProcessEvent
-	s.objectName = "fp_object"
-	
-	
-    print "<<<<<<<<<<<<<< HELLO FROM FP >>>>>>>>>>>>>>>>>"
-	
-	return s
-
-End Function
-
-' =====================================================
+' Examples for Map, Filter, and composition
 function FpUnitTest()
     
     SomeInputArray = [0,1,2,3]
@@ -57,7 +38,7 @@ function FpUnitTest()
     return true
 end function
 ' =====================================================
-
+' Functions composition example
 
 function FpMappedAndFiltered( a ) as object
     
@@ -144,6 +125,27 @@ end function
 ' =====================================================
 ' Intended for startup Unit Test only
 ' In BA send plugin message "UnitTest" to the fp plugin
+
+Function fp_Initialize(msgPort As Object, userVariables As Object, bsp as Object)
+    fp = newfp(msgPort, userVariables, bsp)
+    return fp
+End Function
+
+Function newfp(msgPort As Object, userVariables As Object, bsp as Object)
+	s = {}
+	s.version = 0.1
+	s.msgPort = msgPort
+	s.userVariables = userVariables
+	s.bsp = bsp
+	s.ProcessEvent = fp_ProcessEvent
+	s.objectName = "fp_object"
+	
+	
+    print "<<<<<<<<<<<<<< HELLO FROM FP >>>>>>>>>>>>>>>>>"
+	
+	return s
+
+End Function
 
 Function fp_ProcessEvent( event As Object ) as boolean
     retval = false  
