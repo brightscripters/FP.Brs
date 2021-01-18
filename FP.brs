@@ -38,7 +38,7 @@ function FpUnitTest()
     return true
 end function
 ' =====================================================
-'# Function composition with BrightScript example
+'# Function composition with BrightScript
 
 '# Map()    - Add 1 to all array elements
 '# Filter() - Remove all odd numbers
