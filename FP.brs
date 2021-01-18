@@ -52,6 +52,10 @@ function FpMappedAndFiltered( a as object ) as object
 
 end function
 
+
+' Example: 
+' ResultArray = FpMappedAndFiltered( SomeInputArray )
+
 '''''''''''''''''''''''''''''''''''''''''''''''''''''''
 function FpIsIdenticalList( a, b ) as boolean
 
