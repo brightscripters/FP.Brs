@@ -38,14 +38,17 @@ function FpUnitTest()
     return true
 end function
 ' =====================================================
-' Functions composition example
+'# Function composition with BrightScript example
 
-function FpMappedAndFiltered( a ) as object
+'# Map()    - Add 1 to all array elements
+'# Filter() - Remove all odd numbers
+
+function FpMappedAndFiltered( a as object ) as object
     
-    fn1 = FpListMap( "FpAdd1" ) 
-    fn2 = FpListFilter( "FpIsEven" )
+    map    = FpListMap( "FpAdd1" )      '// Add 1 to all array elements with Map()
+    filter = FpListFilter( "FpIsEven" ) '// Remove all array itmes with odd values with Filter()
 
-    return fn2( fn1( a ) )
+    return filter( map( a ) )           '// Composed Map() then Filter()
 
 end function
 
