@@ -60,7 +60,26 @@ function FpUnitTest()
 
     print "Mapped and Filtered through composition 2: " : print : print MappedThenFiltered
 
+
+    ListComprehensionResult = ListComprehension( Add_1, MyList, IsEven ) ' In effect filter then map
+        
+        if not FpIsIdenticalList( ListComprehensionResult.items, [1,3,5] ) then
+            print "ERROR in ListComprehension()"
+            stop
+            return false
+        end if
+
+    print "List Comprehension: " : print : print ListComprehensionResult.items
+
     return true
+end function
+
+' =====================================================
+'# List Comprehension with BrightScript
+'# Usage: NewList = ListComprehension( fnMap, InputList, fnFilter ) 
+
+function ListComprehension( fnMap, list, fnFilter )
+   return FilterThenMap( list, fnFilter, fnMap )
 end function
 
 ' =====================================================
@@ -72,6 +91,10 @@ end function
 
 ' Example: 
 ' ResultList = MapThenFilter( SomeList, Add_1, IsEven )
+
+function FilterThenMap( list, fnFilter, fnMap )
+   return list.Filter( fnFilter ).Map( fnMap )
+end function
 
 
 ' Same as above with Currying
