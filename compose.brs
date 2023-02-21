@@ -2,7 +2,6 @@ sub main()
 
 compose = function (f$,g$)
     evalThis$ = "fnRet = function (x) : return " + g$ + "(" + f$ + "(x)) : end function"
-    print evalthis$
     eval( evalthis$ )
     return fnRet
 end function
