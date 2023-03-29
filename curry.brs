@@ -1,13 +1,21 @@
+
+' Run this sample code from the BrightSign shell
+' BrightSign> script curry.brs
+
 sub main()
 
-    ' Curried adder()
+' Curried adder()
+' The adder() function takes an a and returns a function that takes b
+    
     adder = function ( a )
         eval( "fnRet = function ( b ) : return b + " + a.toStr() + " : end function" )
         return fnRet 
     end function
 
-    ' Example: Create an increment() function
-    ' Returns incremented integer
+
+' Example: Create an increment() function
+' Returns incremented integer
+    
     increment = adder(1)
 
     print "Increment 11 = "; increment(11)
