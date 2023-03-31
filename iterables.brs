@@ -78,7 +78,7 @@ end function
 
 
 ' Always return true
-function alwaysTruei( item ) as boolean
+function alwaysTrue( item ) as boolean
     return true
 end function
 
