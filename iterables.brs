@@ -4,8 +4,9 @@ function newIterable( someList = [] as object ) as object
         ' if not isIn( type$, ["roList", "roArray", "roByteArray", "roAssociativeArray"] ) then return invalid
 
     newThing = { list: someList }
-    newThing.map = itrMap
+    newThing.map    = itrMap
     newThing.filter = itrFilter
+    newThing.reduce = itrReduce
 
     return newThing
 
@@ -43,14 +44,41 @@ function itrMap( fnMapper as object ) as object
 end function
 
 
+' Takes an iterable as m
+' Retruns single reduced value.
+function itrReduce( fnReducer as object ) as dynamic
+    
+    ' fnReducer should be able to return a unity value.
+    ' 0 for addition, 1 for multiplication, etc...
+    accumulator = fnReducer() 
+
+        for each item in m.list
+            accumulator = fnReducer(item, accumulator) ' Add support for aa
+        end for
+
+    return accumulator
+
+end function
+
+
 function getEmptyLike( iterable ) as object
         if type(iterable) = "roArray" then return [] 
     return createObject( type( iterable) )
 end function
 
 
+function sumItems( item = 0, accumulator = 0 ) as dynamic
+    return accumulator + item
+end function
+
+
+function multItems( item = 1, accumulator = 1 ) as dynamic
+    return accumulator * item
+end function
+
+
 ' Always return true
-function alwaysTrue( item ) as boolean
+function alwaysTruei( item ) as boolean
     return true
 end function
 

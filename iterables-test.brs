@@ -10,4 +10,10 @@ sub main()
     ' Should return [6,10]
     print result.list
 
+    ' Should return 16
+    print result.reduce(sumItems)
+
+    ' Should return 60
+    print result.reduce(multItems)
+
 end sub
